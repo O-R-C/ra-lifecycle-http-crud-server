@@ -5,8 +5,7 @@
   },
   "nodemonConfig": {
     "watch": [
-      "src",
-      "js",
+      "src/*",
       "routes/*",
       "server.js"
     ],
