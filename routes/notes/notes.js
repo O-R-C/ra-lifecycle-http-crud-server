@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const Notes = require('../../src/js/Notes')
 const notesData = require('../../src/js/notesData')
+const Notes = require('../../src/js/Notes')
 const notes = new Notes(notesData)
 
 router.get('/', (req, res) => {
@@ -12,12 +12,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const note = {
-    id: uuidv4(),
-    content: req.body.content,
-  }
-  notes.push(note)
-  res.send(note)
+  notes.addNote(req.body)
+  res.status(204).send('Success')
 })
 
 router.delete('/:id', (req, res) => {
